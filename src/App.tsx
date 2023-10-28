@@ -1,8 +1,5 @@
 import './style/global.sass';
 
-// preact imports
-import Router from 'preact-router';
-
 // components
 import Providers from '~store/Providers';
 import Header from '~components/header/Header';
@@ -16,15 +13,30 @@ import useTheme from '~hooks/useTheme';
 import Home from '~pages/home/Home';
 import NotFound from '~pages/NotFound/NotFound.tsx';
 import Term from '~pages/term/Term';
+import { useState } from 'preact/hooks';
+import ITerm from '~/models/ITerm';
+import Router from 'preact-router';
 
 export default function App() {
   const { isSideNavigationOpen, toggleSideNavigation } = useSideNavigation();
   const { theme, toggleTheme } = useTheme();
-
+  const [filteredTerms, setFilteredTerms] = useState<ITerm[]>([]);
+  const [searchTerm, setSearchTerm] = useState('');
   return (
     <Providers isSideNavigationOpen={isSideNavigationOpen} theme={theme}>
-      <Header toggleSideNav={toggleSideNavigation} toggleTheme={toggleTheme} />
-      <Content>
+      <Header
+        searchTerm={searchTerm}
+        setFilteredTerms={setFilteredTerms}
+        setSearchTerm={setSearchTerm}
+        toggleSideNav={toggleSideNavigation}
+        toggleTheme={toggleTheme}
+      />
+      <Content
+        searchTerm={searchTerm}
+        filteredTerms={filteredTerms}
+        setSearchTerm={setSearchTerm}
+        setFilteredTerms={setFilteredTerms}
+      >
         <Router>
           <Home path="/" />
           <NotFound path="/404" />

@@ -1,25 +1,49 @@
 .content
-    height: 100%
-    display: flex
-    overflow: hidden
+	height: 100%
+	display: flex
+	overflow: hidden
 
-    .main-content
-        flex-grow: 1
-        display: grid
-        grid-template-rows: 1fr auto
-        overflow: auto
+	.main-content
+		flex-grow: 1
+		display: grid
+		grid-template-rows: 1fr auto
+		overflow: auto
 
-        main
-            padding-block: 2rem
-            max-width: calc( 100% - 16rem )
+		main
+			padding-block: 2rem
+			max-width: calc(100% - 16rem)
 
-            h2, h3, h4, h5, h6
-                margin-block: 2em 0.5em
+			h2, h3, h4, h5, h6
+				margin-block: 2em 0.5em
 
-            p, li
-                margin-block: 1em
+			p, li
+				margin-block: 1em
 
-// Media queries for responsive design 
+
+	.searchResultsOverlay
+		position: fixed
+		top: 20%
+		left: 50%
+		transform: translate(-50%, 0%)
+		z-index: 1000
+		background-color: $bg-color-secondary
+		padding: 1rem
+		font-size: 1.2rem
+		border-radius: 8px
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+		max-width: 80%
+		overflow-y: auto
+
+		div
+			padding: 0.5rem
+			cursor: pointer
+			transition: background-color 0.3s
+
+			&:hover
+				background-color: $bg-color-tertiary
+
+
+// Media queries for responsive design
 @media screen and (max-width: $small-screen)
-    .content > .main-content > main
-        max-width: 90%
+	.content > .main-content > main
+		max-width: 90%

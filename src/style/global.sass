@@ -1,48 +1,57 @@
 body
-    background: $bg-color-primary
+	background: $bg-color-primary
 
 #app
-    height: 100dvh
-    display: flex
-    flex-direction: column
+	height: 100dvh
+	display: flex
+	flex-direction: column
 
 *
-    margin: 0
-    padding: 0
-    color: $text-color-primary
-    font-family: $font-primary
+	margin: 0
+	padding: 0
+	color: $text-color-primary
+	font-family: $font-primary
 
 h1, h2, h3, h4, h5, h6, strong
-    font-weight: 500
+	font-weight: 500
 
 p
-    line-height: 1.5
-    color: $text-color-secondary
+	line-height: 1.5
+	color: $text-color-secondary
 
 a
-    color: $color-primary-light
-    text-decoration: none
-    font-weight: 500
+	color: $color-primary-light
+	text-decoration: none
+	font-weight: 500
 
 ul, ol
-    list-style-position: inside
+	list-style-position: inside
 
 .wrapper
-    padding-inline: 2rem
-    width: 100%
-    box-sizing: border-box
+	padding-inline: 2rem
+	width: 100%
+	box-sizing: border-box
 
 .super-header
-    color: $color-primary-light
-    font-size: 3rem
-    margin-bottom: 1rem
-    font-weight: bold
+	color: $color-primary-light
+	font-size: 3rem
+	margin-bottom: 1rem
+	font-weight: bold
 
 code
-    font-family: $font-code
-    padding: 1rem
-    color: $code-default-color
-    unicode-bidi: plaintext
-    display: block
-    background: $bg-color-secondary
-    border-radius: 1rem
+	font-family: $font-code
+	padding: 1rem
+	color: $code-default-color
+	unicode-bidi: plaintext
+	display: block
+	background: $bg-color-secondary
+	border-radius: 1rem
+
+.highlighted
+	font-weight: bold
+
+[data-theme=light] .highlighted
+	background-color: yellow
+
+[data-theme=dark] .highlighted
+	background-color: red

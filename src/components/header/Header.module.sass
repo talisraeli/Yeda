@@ -1,52 +1,77 @@
+// Color variables for the search input
+$border-color-input: #d1d1d1
+$text-color-input: #333
+$bg-input: #fff
+$border-color-input-focus: #007BFF
+
 .header
-    display: grid
+	display: grid
 
-    *
-        line-height: 1
+	*
+		line-height: 1
 
-    .header-top, .header-bottom
-        display: flex
-        padding-block: 1rem
+	.header-top, .header-bottom
+		display: flex
+		padding-block: 1rem
 
-    .header-top
-        background-color: $bg-header-top
+	.header-top
+		background-color: $bg-header-top
 
-        .logo
-            padding: 0.5em
-            margin: -0.5em
+		.logo
+			padding: 0.5em
+			margin: -0.5em
 
-            img
-                height: 3rem
+			img
+				height: 3rem
 
-    .header-bottom
-        background-color: $bg-header-bottom
+	.header-bottom
+		background-color: $bg-header-bottom
 
-        nav
-            ul
-                list-style: none
-                display: flex
-                gap: 2rem
+		nav
+			ul
+				list-style: none
+				display: flex
+				gap: 2rem
 
-                li
-                    img
-                        height: 1rem
+				li
+					display: flex
+					align-items: center
+					img
+						height: 1rem
 
-                    a
-                        color: $text-color-header
-                        font-weight: normal
+					a
+						color: $text-color-header
+						font-weight: normal
 
-                    button
-                        appearance: none
-                        background: transparent
-                        border: none
-                        cursor: pointer
-                        border-radius: 50%
-                        outline: none
-                        padding: 0.25em
-                        margin: -0.25em
+					button
+						appearance: none
+						background: transparent
+						border: none
+						cursor: pointer
+						border-radius: 50%
+						outline: none
+						padding: 0.25em
+						margin: -0.25em
 
-                    &:last-child
-                        flex-grow: 1
-                        display: flex
-                        justify-content: end
-                        gap: 1rem
+					// Styling for the search input
+					input[type="text"]
+						margin: 0
+						width: 400px
+						font-size: 1.2rem
+						font-weight: 500
+						padding: 0.25em 0.5em
+						border: 1px solid $border-color-input
+						border-radius: 4px
+						color: $text-color-input
+						background-color: $bg-input
+						outline: none
+						transition: border-color 0.3s
+
+						&:focus
+							border-color: $border-color-input-focus
+
+					&:last-child
+						flex-grow: 1
+						display: flex
+						justify-content: end
+						gap: 1rem
