@@ -2,16 +2,26 @@
     height: 100%
     display: flex
     overflow: hidden
+    position: relative
 
     .main-content
         flex-grow: 1
         display: grid
         grid-template-rows: 1fr auto
-        overflow: auto
+        overflow-y: auto
 
         main
             padding-block: 2rem
             max-width: calc( 100% - 16rem )
+            overflow-x: hidden
+
+            @media screen and (max-width: $large-screen)
+                max-width: 100%
+
+            pre
+                text-wrap: wrap
+                overflow-x: hidden
+
 
             h2, h3, h4, h5, h6
                 margin-block: 2em 0.5em
@@ -19,7 +29,5 @@
             p, li
                 margin-block: 1em
 
-// Media queries for responsive design 
-@media screen and (max-width: $small-screen)
-    .content > .main-content > main
-        max-width: 90%
+            li > p
+                display: inline

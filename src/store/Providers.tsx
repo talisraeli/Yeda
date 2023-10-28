@@ -14,7 +14,10 @@ type ProvidersProps = ISideNavigationContext &
 export default function Providers(props: ProvidersProps) {
   return (
     <SideNavigationContext.Provider
-      value={{ isSideNavigationOpen: props.isSideNavigationOpen }}
+      value={{
+        isSideNavigationOpen: props.isSideNavigationOpen,
+        closeSideNavigation: props.closeSideNavigation,
+      }}
     >
       <ThemeContext.Provider value={{ theme: props.theme }}>
         {props.children}

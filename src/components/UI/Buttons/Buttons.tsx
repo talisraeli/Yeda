@@ -1,7 +1,13 @@
 import { JSX } from 'preact';
 import styles from './Buttons.module.sass';
-import backIcon from './icons/backArrow.svg';
-import nextIcon from './icons/nextArrow.svg';
+import { useContext } from 'preact/hooks';
+import { ThemeContext } from '~store/ThemeContext';
+
+// icons
+import backArrow from './icons/backArrow.svg';
+import nextArrow from './icons/nextArrow.svg';
+import backArrowLight from './icons/backArrowLight.svg';
+import nextArrowLight from './icons/nextArrowLight.svg';
 
 interface ButtonProps extends JSX.HTMLAttributes<HTMLButtonElement> {}
 
@@ -42,11 +48,15 @@ export function SecondaryButton(props: ButtonProps) {
  * Button UI for moving next
  */
 export function NextButton(props: ButtonProps) {
+  const themeCtx = useContext(ThemeContext);
   return (
     <PrimaryButton onClick={props.onClick}>
       <div className={styles.container}>
         {props.children}
-        <img src={nextIcon} alt="עבור למונח הבא בתפריט" />
+        <img
+          src={themeCtx.theme === 'dark' ? nextArrow : nextArrowLight}
+          alt="עבור למונח הבא בתפריט"
+        />
       </div>
     </PrimaryButton>
   );
@@ -56,10 +66,14 @@ export function NextButton(props: ButtonProps) {
  * Button UI for moving backwards
  */
 export function BackButton(props: ButtonProps) {
+  const themeCtx = useContext(ThemeContext);
   return (
     <PrimaryButton onClick={props.onClick}>
       <div className={styles.container}>
-        <img src={backIcon} alt="עבור למונח הקודם בתפריט" />
+        <img
+          src={themeCtx.theme === 'dark' ? backArrow : backArrowLight}
+          alt="עבור למונח הקודם בתפריט"
+        />
         {props.children}
       </div>
     </PrimaryButton>
