@@ -1,8 +1,11 @@
+
 .side-navigation
     min-width: 16rem
     padding-block: 2rem
     background: $bg-color-secondary
     overflow: auto
+    box-sizing: border-box
+    height: 100%
 
     nav
         .group
@@ -23,5 +26,15 @@
                         background: $color-primary
                         color: $text-color-side-navigation
 
-    .navigation-header
-        padding-block: 0.75em
+                .navigation-header
+                    padding-block: 0.75em
+
+@media screen and (max-width: $medium-screen)
+    .side-navigation-container
+        position: absolute
+        inset: 0
+
+        .side-navigation
+            position: absolute
+            inset-inline-start: 0
+            inset-block: 0

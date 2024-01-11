@@ -2,6 +2,7 @@ import { createContext } from 'preact';
 
 export interface ISideNavigationContext {
   isSideNavigationOpen: boolean;
+  closeSideNavigation: () => void;
 }
 
 /**
@@ -9,4 +10,5 @@ export interface ISideNavigationContext {
  */
 export const SideNavigationContext = createContext<ISideNavigationContext>({
   isSideNavigationOpen: false,
+  closeSideNavigation: () => {},
 });
